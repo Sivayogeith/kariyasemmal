@@ -1,0 +1,13 @@
+@import "~@angular/material/theming";
+// Define a new theme without any colors
+$app-theme: mat-light-theme(
+  (
+    color: (
+      primary: #fff,
+      accent: #fff,
+      warn: #fff,
+    ),
+  )
+);
+// Apply the new theme
+@include angular-material-theme($app-theme);

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+body:not(.dark-mode-preloading) {
+  transition: all 0.3s linear;
+}
+
+body.dark-mode {
+  background-color: #333333;
+  color: #dfe6e9;
+}
+
+body.light-mode {
+  background-color: #f8f8f8;
+  /* background-image: url("./assets/bg-image.jpeg"); */
+  color: #333333;
+}
+
+html,
+body {
+  height: 100%;
+}
+/* body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+} */

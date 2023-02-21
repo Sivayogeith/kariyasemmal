@@ -1,0 +1,84 @@
+<nav class="navbar">
+  <a class="navbar-brand" href="#">Kariyasemmal</a>
+  <div class="navbar-links">
+    <a
+      class="dropdown-link"
+      (click)="toggleDarkMode()"
+      style="cursor: 'pointer'"
+    >
+      <i class="fa fa-{{ showDark }}"></i>
+    </a>
+    <div *ngIf="!data">
+      <a class="navbar-link" routerLink="/signin" routerLinkActive="active"
+        >Sign In</a
+      >
+      <a class="navbar-link" routerLink="/signup" routerLinkActive="active"
+        >Sign Up</a
+      >
+    </div>
+    <div class="nav-item dropdown" *ngIf="data">
+      <a
+        class="dropdown-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fa fa-bell"></i>
+        <span
+          class="badge badge-pill badge-danger"
+          *ngIf="getNewNotificationCount()"
+          >{{ newNotificationCount }}</span
+        >
+      </a>
+      <div class="dropdown-menu notification" aria-labelledby="navbarDropdown">
+        <div *ngIf="notifications">
+          <div *ngFor="let notification of notifications">
+            <div
+              class="dropdown-item notification"
+              [ngClass]="{ read: notification.read }"
+              (click)="markAsRead(notification)"
+              title="Click to Mark As Read!"
+            >
+              <button
+                class="btn btn-link float-right"
+                (click)="removeNotification(notification)"
+              >
+                <i class="fa fa-times"></i>
+              </button>
+              {{ notification.message }}
+              <br />
+              <small class="text-muted">{{
+                getTimeDifferenceString(notification.createdAt)
+              }}</small>
+            </div>
+            <li><hr class="dropdown-divider notification" /></li>
+          </div>
+        </div>
+        <div *ngIf="!notifications.length">
+          <div class="dropdown-item">Nothing to show you!</div>
+        </div>
+      </div>
+
+      <a
+        class="dropdown-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fa fa-user"></i> Profile
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <a class="dropdown-item" (click)="signOut()">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
