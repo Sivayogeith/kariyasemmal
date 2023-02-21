@@ -1,0 +1,73 @@
+<div class="signup-page-container">
+  <div class="header-container">
+    <h1 class="header-text">Sign Up</h1>
+  </div>
+  <form class="signup-form">
+    <div class="form-group">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        id="username"
+        class="form-input"
+        [(ngModel)]="username"
+        name="username"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-input"
+        [(ngModel)]="email"
+        name="email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-input"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        class="form-input"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        required
+        [ngClass]="{
+          error: password !== confirmPassword,
+          empty: confirmPassword == '',
+          match: password == confirmPassword && password !== ''
+        }"
+      />
+    </div>
+    <button
+      class="signup-button"
+      [disabled]="!username || !password || !confirmPassword || !email"
+      [ngClass]="{
+        disabled: !username || !password || !confirmPassword || !email
+      }"
+      (click)="onSubmit()"
+    >
+      Sign Up
+    </button>
+    <div class="signin-link-container">
+      <a routerLink="/signin" class="signin-link"
+        >Already have an account? Sign In here</a
+      >
+    </div>
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

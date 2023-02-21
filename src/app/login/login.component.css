@@ -1,0 +1,114 @@
+.signin-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header-container {
+  margin-bottom: 40px;
+}
+
+.header-text {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 40px;
+  border: 1px solid #e2e2e2;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+.form-input {
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+.signin-button {
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signin-button:disabled {
+  background-color: #b1d4f5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 20px;
+  color: #ff0000;
+}
+
+.forgot-password-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.forgot-password-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.or-divider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.or-divider {
+  width: 40%;
+  height: 1px;
+  background-color: #333333;
+  margin: 0 10px;
+}
+
+.create-account-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create-account-button {
+  color: #333333;
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
