@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
-
 body:not(.dark-mode-preloading) {
   transition: all 0.3s linear;
 }
@@ -21,7 +20,44 @@ html,
 body {
   height: 100%;
 }
-/* body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-} */
+
+/* Responsive styles */
+
+@media (max-width: 576px) {
+  .dropdown-menu.notification,
+  .toast-long {
+    width: 300px !important;
+    max-height: 300px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .dropdown-menu.notification,
+  .toast-long {
+    width: 400px !important;
+    max-height: 500px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .dropdown-menu.notification,
+  .toast-long {
+    width: 500px !important;
+    max-height: 600px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .dropdown-menu.notification,
+  .toast-long {
+    width: 600px !important;
+    max-height: 700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dropdown-menu.notification,
+  .toast-long {
+    width: 700px !important;
+    max-height: 800px;
+  }
+}

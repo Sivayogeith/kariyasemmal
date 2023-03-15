@@ -288,4 +288,4 @@ input[type="password"]::placeholder {
   line-height: normal;
   margin-top: -3px;
   min-height: 61px;
-}
+}()
