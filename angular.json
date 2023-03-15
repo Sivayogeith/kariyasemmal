@@ -27,10 +27,12 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
-              "./node_modules/font-awesome/css/font-awesome.min.css"
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "./node_modules/angular-dark-mode/angular-dark-mode.js",
+              "./node_modules/@popperjs/core/dist/umd/popper.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
