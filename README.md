@@ -4,7 +4,7 @@ After pulling the repo from GitHub, follow these steps:
 
 ## Configuring MongoDB
 
-Add your MongoDB credentials in the config.js file in the backend/ directory in the following format:
+Create an config.js file in the backend/ directory and add your MongoDB credentials in the following format:
 
 ```js
 const config = {
@@ -51,8 +51,8 @@ export const environment = {
 ```ts
 export const environment = {
   production: true,
-  baseURL: "http://localhost:3000/api/v1",
-  baseWsURL: "ws://localhost:3000/api/v1",
+  baseURL: "/api/v1",
+  baseWsURL: `ws://${location.host}/api/v1`,
   firebase: {
     apiKey: "<your-api-key>",
     authDomain: "<your-auth-domain>",
