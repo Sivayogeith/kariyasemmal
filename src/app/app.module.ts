@@ -23,6 +23,12 @@ import { HomeComponent } from './home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+// Firebase
+import { environment } from 'src/environments/environment';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAnalytics, getAnalytics } from '@angular/fire/analytics';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +55,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatToolbarModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+
+    // Firebase
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics()),
+    provideFunctions(() => getFunctions()),
   ],
   providers: [],
   bootstrap: [AppComponent],

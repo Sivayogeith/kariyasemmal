@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kariyasemmal": {
+      "hosting": {
+        "kariyasemmal": [
+          "kariyasemmal"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kariyasemmal"
+  }
+}

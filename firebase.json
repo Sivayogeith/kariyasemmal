@@ -1,0 +1,29 @@
+{
+  "hosting": {
+    "public": "dist/",
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "app"
+      }
+    ]
+  },
+  "functions": {
+    "source": ".",
+    "runtime": "nodejs16",
+    "ignore": [
+      "firebase.json",
+      "**/node_modules/**",
+      "src",
+      ".git",
+      ".angular",
+      ".firebase"
+    ],
+    "entryPoints": [
+      {
+        "name": "app",
+        "source": "app.js"
+      }
+    ]
+  }
+}

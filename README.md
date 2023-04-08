@@ -1,27 +1,82 @@
-# Kariyasemmal
+# Contributions
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
+After pulling the repo from GitHub, follow these steps:
 
-## Development server
+## Configuring MongoDB
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Add your MongoDB credentials in the config.js file in the backend/ directory in the following format:
 
-## Code scaffolding
+```js
+const config = {
+  user: "<your-mongodb-user>",
+  password: "<your-mongodb-user-password>",
+  cluster: "<your-mongodb-cluster>",
+  database: "<your-mongodb-database>",
+};
+const uri = `mongodb+srv://${config.user}:${config.password}@${config.cluster}/${config.database}?authSource=admin&ssl=true`;
+const jwtKey =
+  "lasbawQtxkdYertgwJG4pb5rNLCtmD41OCablLBdEnonMRFlO3kjwXlqc2iMdjj5c4Q0JZq";
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+const notifications = {
+  newUser: (name) => `Hello ${name}, Welcome to Kariyasemmal!`,
+};
+module.exports = { config, uri, jwtKey, notifications };
+```
 
-## Build
+## Configuring Firebase
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Create an environment.ts and environment.prod.ts file in the src/environments directory and add the following code:
 
-## Running unit tests
+`environment.ts`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```ts
+export const environment = {
+  production: false,
+  baseURL: "http://localhost:3000/api/v1",
+  baseWsURL: "ws://localhost:3000/api/v1",
+  firebase: {
+    apiKey: "<your-api-key>",
+    authDomain: "<your-auth-domain>",
+    projectId: "<your-project-id>",
+    storageBucket: "<your-storage-bucket>",
+    messagingSenderId: "<your-messaging-sender-id>",
+    appId: "<your-app-id>",
+    measurementId: "<your-measurement-id>",
+  },
+};
+```
 
-## Running end-to-end tests
+`environment.prod.ts`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```ts
+export const environment = {
+  production: true,
+  baseURL: "http://localhost:3000/api/v1",
+  baseWsURL: "ws://localhost:3000/api/v1",
+  firebase: {
+    apiKey: "<your-api-key>",
+    authDomain: "<your-auth-domain>",
+    projectId: "<your-project-id>",
+    storageBucket: "<your-storage-bucket>",
+    messagingSenderId: "<your-messaging-sender-id>",
+    appId: "<your-app-id>",
+    measurementId: "<your-measurement-id>",
+  },
+};
+```
 
-## Further help
+Replace the placeholders with your Firebase project's information.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Running the Application
+
+Run the following commands in the terminal:
+
+1. `npm i` - for installing the required packages
+2. `npm run backend` - for the backend server
+3. `npm start` - open a new terminal tab and run this for the frontend dev server
+
+The backend server will start at http://localhost:3000 and the frontend development server will start at http://localhost:4200.
+
+## Deploying
+
+Just, run `npm run deploy`!
