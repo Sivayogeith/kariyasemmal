@@ -1,17 +1,21 @@
-// app.js
-
+const functions = require("firebase-functions");
 const express = require("express");
 const config = require("./backend/config");
 const mongoose = require("mongoose");
-const cors = require("cors");
+const path = require("path");
 const app = express();
-const expressws = require("express-ws")(app);
-
-// Allow cross-origin requests
-app.use(cors());
-
-// Parse requests of content-type - application/json
+require("express-ws")(app);
+const PORT = 3000;
 app.use(express.json());
+
+// Define routes
+const routes = require("./backend/routes");
+app.use("/api/v1", routes);
+
+// Serve the index.html file for all other requests
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist/index.html"));
+});
 
 // Connect to MongoDB
 mongoose
@@ -26,14 +30,9 @@ mongoose
     console.error("Could not connect to MongoDB", err);
     process.exit();
   });
-
-app.listen(3000, () => {
-  console.log(`Server running on port 3000`);
+// comment for firebase deploying
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-// Define routes
-const routes = require("./backend/routes");
-app.use("/api/v1", routes);
-
-// // Export WebSocket server
-// module.exports = wss;
+// un-comment for deploying to firebase
+// exports.app = functions.https.onRequest(app);

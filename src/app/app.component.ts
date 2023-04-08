@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject } from '@angular/core';
+import { Analytics } from '@angular/fire/analytics';
 import { Router } from '@angular/router';
 import { DarkModeService } from 'angular-dark-mode';
 import { LoginService } from './services/login.service';
@@ -10,12 +11,12 @@ import { NotificationsService } from './services/notifications.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'infosys';
   data: any = {};
   showDark = 'moon-o';
   showNew = false;
   notifications: any[] = [];
   newNotificationCount = 0;
+  private analytics: Analytics = Inject(Analytics);
   private notificationsSubscription: any;
 
   constructor(

@@ -130,3 +130,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+
+src/environments/*
+backend/config.js

@@ -2,9 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-
   "projects": {
-    "infosys": {
+    "kariyasemmal": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -18,12 +17,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/infosys",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
@@ -34,15 +36,16 @@
               "./node_modules/angular-dark-mode/angular-dark-mode.js",
               "./node_modules/@popperjs/core/dist/umd/popper.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            ],
+            "preserveSymlinks": true
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -73,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "infosys:build:production"
+              "browserTarget": "kariyasemmal:build:production"
             },
             "development": {
-              "browserTarget": "infosys:build:development"
+              "browserTarget": "kariyasemmal:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "infosys:build"
+            "browserTarget": "kariyasemmal:build"
           }
         },
         "test": {
@@ -94,16 +97,31 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": ["./node_modules/angular-dark-mode/angular-dark-mode.js"]
+            "scripts": [
+              "./node_modules/angular-dark-mode/angular-dark-mode.js"
+            ]
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "kariyasemmal:build:production",
+            "firebaseProject": "kariyasemmal",
+            "firebaseHostingSite": "kariyasemmal"
           }
         }
       }
     }
   },
-  "defaultProject": "infosys"
+  "defaultProject": "kariyasemmal"
 }
