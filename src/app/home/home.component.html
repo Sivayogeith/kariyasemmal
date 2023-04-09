@@ -1,3 +1,45 @@
 <div class="container">
-  <h1 *ngIf="data">Hi {{ data.username }}!</h1>
+  <h1 style="font-size: 2rem">
+    Welcome to Kariyasemmal<span *ngIf="data">, {{ data.username }}</span
+    >!
+  </h1>
+  <button
+    class="btn btn-primary"
+    routerLink="/signup"
+    style="margin: 10px"
+    *ngIf="!data"
+  >
+    Sign Up for Free!
+  </button>
+  <h3 style="font-size: 1.1rem">
+    What is Kariyasemmal, you may ask? Kariyasemmal, pronounced as
+    ka-ree-ya-seem-maal, is a term used in the Tamil epic Ramayanam by Kambar.
+    In the story, a sage named Visvamitra comes to the king Dasaratha and
+    requests Rama and his brother Lakshmana to accompany him to the forest to
+    kill monsters that are destroying the sages' abode. Visvamitra believes that
+    Rama's strength and courage are needed to protect the sages, and he
+    affectionately calls Rama "Kariyasemmal," which means "a man of great
+    accomplishments."
+  </h3>
+  <h3 style="font-size: 1.1rem">
+    When Visvamitra asks Dasaratha to send Rama with him, he recites the
+    following Tamil verse, praising Rama's character and abilities:
+  </h3>
+  <h3 style="font-size: 1.1rem">
+    நின் சிறுவர் நால்வரினும்<br />
+    கரிய செம்மல் ஒருவனைத் தந்திடுதி<br />
+    - Kambaramayanam verse 324
+  </h3>
+  <h3 style="font-size: 1.1rem">
+    This verse translates to:
+
+    <br />
+    Among your four sons,<br />
+    give me the man of great accomplishments.
+  </h3>
+  <h3 style="font-size: 1.1rem">
+    This verse shows Visvamitra's admiration for Rama's skills and character,
+    and his belief that Rama is the best fit for the mission to protect the
+    sages in the forest.
+  </h3>
 </div>

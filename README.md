@@ -52,7 +52,7 @@ export const environment = {
 export const environment = {
   production: true,
   baseURL: "/api/v1",
-  baseWsURL: `ws://${location.host}/api/v1`,
+  baseWsURL: `wss://${location.host}/api/v1`,
   firebase: {
     apiKey: "<your-api-key>",
     authDomain: "<your-auth-domain>",
