@@ -31,8 +31,8 @@ mongoose
     process.exit();
   });
 // comment for firebase deploying
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
 // un-comment for deploying to firebase
-// exports.app = functions.https.onRequest(app);
+exports.app = functions.https.onRequest(app);

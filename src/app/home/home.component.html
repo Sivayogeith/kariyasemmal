@@ -3,7 +3,12 @@
     Welcome to Kariyasemmal<span *ngIf="data">, {{ data.username }}</span
     >!
   </h1>
-  <button class="btn btn-primary" routerLink="/signup" style="margin: 10px">
+  <button
+    class="btn btn-primary"
+    routerLink="/signup"
+    style="margin: 10px"
+    *ngIf="!data"
+  >
     Sign Up for Free!
   </button>
   <h3 style="font-size: 1.1rem">
