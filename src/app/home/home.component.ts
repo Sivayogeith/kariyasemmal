@@ -8,6 +8,7 @@ import { LoginService } from '../services/login.service';
 })
 export class HomeComponent implements OnInit {
   data: any = this.login.getLoginData();
+
   constructor(private login: LoginService) {}
   ngOnInit(): void {}
 }
