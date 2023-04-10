@@ -3,5 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85vh;
+  height: fit-content;
+  margin-top: 10vw;
 }
